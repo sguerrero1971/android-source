@@ -35,9 +35,9 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
-
+		 
 		// You are free to modify the return statement
-		return false;
+		return !original;
 	}
 
 	/*
@@ -60,6 +60,10 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
+		for (int x = 0; x < numbers.length; x++){
+			numbers[x] = (numbers[x] *= -1);
+		}
+		 
 	}
 
 
@@ -90,9 +94,21 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
+		 
+		boolean [] boolArray = new boolean [someNumbers.length];
+		 
+		for (int x = 0; x < someNumbers.length; x++){
+
+			if (floor >= someNumbers[x]) {
+				boolArray[x] = false;
+			} else {
+				boolArray[x] = true;
+			}
+		} 
 
 		// You are free to modify the return statement
-		return new boolean [0];
+		return boolArray;
+		
 	}
 
 	/*
@@ -117,9 +133,41 @@ public class Methods extends Object {
 		/************************************************
 		 * Your work goes here
 		 ************************************************/
+		 
+		int minValue, maxValue;
 
+		if (someNumbers.length == 1){
+				maxValue = someNumbers[0];
+				minValue = someNumbers[0];
+				int [] result = new int [2];
+				result[0] = minValue;
+				result[1] = maxValue;
+				return result;
+		} 
+		
+		if (someNumbers[0] > someNumbers[1]) {
+				maxValue = someNumbers[0];
+				minValue = someNumbers[1];
+		} else {
+				maxValue = someNumbers[1];
+				minValue = someNumbers[0];
+		}
+		
+		for (int x = 1; x <= someNumbers.length - 1; x++){			
+			if(maxValue < someNumbers[x]){
+				maxValue = someNumbers[x];				
+			}
+			if(minValue > someNumbers[x]){				
+				minValue = someNumbers[x];
+			}			
+		}		
+		 
 		// You are free to modify the return statement
-		return new int[2];
+		int [] result = new int [2];
+		result[0] = minValue;
+		result[1] = maxValue;		
+		return result;
+		
 	}
 
 
