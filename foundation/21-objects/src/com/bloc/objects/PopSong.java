@@ -14,6 +14,11 @@ class PopSong extends Song {
 	 *	ASSIGNMENT:
 	 *	Create the first PopSong constructor
 	/************************************************/
+	
+	PopSong(){
+		super();
+		mWeeksOnBillboard = 5;
+	}
 
 	/*
 	 * PopSong
@@ -27,6 +32,10 @@ class PopSong extends Song {
 	 *	ASSIGNMENT:
 	 *	Create the second PopSong constructor
 	/************************************************/
+	
+	PopSong(Ensemble ensemble, String title){
+		this(ensemble, title, 0);
+	}
 
 	/*
 	 * PopSong
@@ -41,6 +50,10 @@ class PopSong extends Song {
 	 *	ASSIGNMENT:
 	 *	Create the third PopSong constructor
 	/************************************************/
+	
+	PopSong(Ensemble ensemble, String title, int yearReleased){
+		this(ensemble, title, yearReleased, 0);
+	}
 
 	/*
 	 * PopSong
@@ -55,4 +68,10 @@ class PopSong extends Song {
 	 *	ASSIGNMENT:
 	 *	Create the fourth PopSong constructor
 	/************************************************/
+	
+	PopSong(Ensemble ensemble, String title, int yearReleased, int weeksOnBillboard){
+		super(ensemble, title, yearReleased);
+		mWeeksOnBillboard = weeksOnBillboard;
+	}
+	
 }
