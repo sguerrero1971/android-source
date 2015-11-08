@@ -31,7 +31,9 @@ public class Main extends Object {
 	 *	ASSIGNMENT:
  	 *	Catch thrown exceptions
 	/************************************************/
+	
 	private static final void tryGetMax() {
+		try{
 		int max = 0;
 		max = FunMethods.getMax((Integer[])null);
 		Integer[] numbers = new Integer[50];
@@ -43,6 +45,11 @@ public class Main extends Object {
 		max = FunMethods.getMax(numbers);
 		numbers[32] = new Integer(rand.nextInt(500));
 		max = FunMethods.getMax(numbers);
+		} catch(IllegalArgumentException e) {
+			
+		} catch(IllegalStateException e){
+			
+		}
 	}
 
 	/************************************************
@@ -50,6 +57,8 @@ public class Main extends Object {
  	 *	Catch thrown exceptions
 	/************************************************/
 	private static final void tryRemove() {
+		
+		try{
 		FunMethods.remove(null, 2);
 		Object[] someObjects = new Object[12];
 		someObjects[0] = "a string!";
@@ -60,6 +69,11 @@ public class Main extends Object {
 			someObjects[i] = String.valueOf(i);
 		}
 		FunMethods.remove(someObjects, 12);
-		someObjects = FunMethods.remove(someObjects, 3);
+		someObjects = FunMethods.remove(someObjects, 3);			
+		} catch(IllegalArgumentException e) {
+			
+		} catch(IndexOutOfBoundsException e){
+			
+		}
 	}
 }
