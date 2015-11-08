@@ -24,12 +24,16 @@ public class FavoritePastries {
 	 *	Use a HashMap to store the relationship
 	 *	between rating and pastry: HashMap<Integer, List<Pastry>>
 	/************************************************/
-
-
+	
+		HashMap<Integer, List<Pastry>> favPas = new HashMap<>();
+	
 	public FavoritePastries() {
 		/************************************************
  	 	 *	WORK HERE
 		/************************************************/
+		
+
+		
 	}
 
 	/* 
@@ -51,6 +55,17 @@ public class FavoritePastries {
 		/************************************************
  	 	 *	WORK HERE
 		/************************************************/
+		
+		removePastry(pastry);
+		
+		List<Pastry> myPastryList = favPas.get(rating);
+		if (myPastryList == null) {
+			myPastryList = new ArrayList<Pastry>();
+		}
+		myPastryList.add(pastry);
+			
+		favPas.put(rating, myPastryList);
+			
 	}
 
 	/* 
@@ -69,6 +84,15 @@ public class FavoritePastries {
 		/************************************************
  	 	 *	WORK HERE, you must modify the return value
 		/************************************************/
+		
+        for(HashMap.Entry entry: favPas.entrySet()){
+			List<Pastry> myPastryList = (List)entry.getValue();
+			if (myPastryList.contains(pastry)) {
+				myPastryList.remove(pastry);
+				return true;
+            }
+        }		
+		
 		return false;
 	}
 
@@ -90,8 +114,17 @@ public class FavoritePastries {
 		/************************************************
  	 	 *	WORK HERE, you must modify the return value
 		/************************************************/
+	
+	    for(HashMap.Entry entry: favPas.entrySet()){
+			List<Pastry> myPastryList = (List)entry.getValue();
+			if (myPastryList.contains(pastry)) {
+				return (Integer)entry.getKey();
+            }
+        }	
 		return -1;
+	
 	}
+	
 
 	/* 
 	 * getPastriesForRating
@@ -113,7 +146,14 @@ public class FavoritePastries {
 		/************************************************
  	 	 *	WORK HERE, you must modify the return value
 		/************************************************/
-		return null;
+
+		List<Pastry> myPastryList = favPas.get(rating);
+		if (myPastryList == null) {
+			myPastryList = new ArrayList<Pastry>();
+		} 		
+		
+		return myPastryList;
+		
 	}
 
 }
